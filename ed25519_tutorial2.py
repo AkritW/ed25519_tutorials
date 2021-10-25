@@ -64,12 +64,13 @@ print("The two are equal right?")
 
 # exercise: implement Shamir secret sharing
 # read more: https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing
-# scenario: You know a secret. You call n other people (which we call 'players').
-#           You must give each player a "partial key" so that exactly m people (with m <= n)
-#           is required to recover the secret. how would you do that?
-#           Shamir secret sharing allows you to do this!
+# here's the scenario:
+#     You know a secret. you call n other people (which we call 'players').
+#     You must give each player a "partial key" so that exactly m people (with m <= n)
+#     is required to recover the secret. how would you do that?
+# Shamir secret sharing allows you to do this!
 
-# here's the actual secret. The players must not know this (until recovery at least)
+# here's the actual secret. the players must not know this (until recovery at least)
 actual_secret = Scalar(123456789)
 
 # build the secret polynomial: we want m = 3 players to recover the secret

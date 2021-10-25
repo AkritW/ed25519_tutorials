@@ -7,12 +7,12 @@ import dumb25519
 # you can add/subtract points (G + H, G - H) and you can do scalar
 # multiplication with it (x * G or xG for short).
 # ...and the analogy stops there.
-# 
+#
 # HOWEVER, we can have a vector/array OF scalars & OF points (part 2).
 
-# difference #1: the scalars. In vector calculus, the scalar is real
-# numbers. On the other hand, our scalar is integers modulo a large
-# prime number l. In other words, our scalars are only from 0 to (l - 1)
+# difference #1: the scalars. in vector calculus, the scalar is real
+# numbers. on the other hand, our scalar is integers modulo a large
+# prime number l. in other words, our scalars are only from 0 to (l - 1)
 # (the remainders when any integer is divided by l).
 # Here's the l:
 print("l = " + str(dumb25519.l))
@@ -59,10 +59,10 @@ print("Random scalar: " + str(rnd_scalar) + " or \n" + str(rnd_scalar.x))
 # comparsion (does not account for overflow), true truncated division ("//"), etc.
 # we are done with Scalars.
 
-# differences #2: the elliptic curve points. These are actually points (x,y)
+# differences #2: the elliptic curve points. these are actually points (x,y)
 # but the x and y are integers modulo another large (not necessarily prime)
 # number q (the value is in dumb25519.q)
-# we usually do not initialize points like we initialize scalar. Instead, we use
+# we usually do not initialize points like we initialize scalar. instead, we use
 # either one of the two:
 # 1) get a random point
 rnd_point = dumb25519.random_point()
@@ -115,11 +115,11 @@ print("Hash point: " + str(yet_another_point))
 
 # exercise: Monero cryptocurrency uses Pedersen commitment to hide amounts in the blockchain.
 # implement Pedersen commitment: given a scalar x, it must output a pair (r, rG + xH) where r is
-# a random scalar. For Monero, r should never be in the blockchain, only the rG + xH is.
+# a random scalar. for Monero, r should never be in the blockchain, only the rG + xH is.
 #
 # then demonstrate the homomorphicity of Pedersen commitment: show that
-#    pedersen(x1) + pedersen(x2) = (r1 + r2)G + (x1 + x2)H where r1 and r2 are the 'r' output of
-#    pedersen(x1) and pedersen(x2), respectively.
+# pedersen(x1) + pedersen(x2) = (r1 + r2)G + (x1 + x2)H where r1 and r2 are the 'r' output of
+# pedersen(x1) and pedersen(x2), respectively.
 H = dumb25519.hash_to_point("Pedersen")
 
 def pedersen(amount):
@@ -133,7 +133,7 @@ def pedersen(amount):
 # else:
     # print("Something's wrong :(")
 
-# exercise: implement Elgamal point encryption scheme. This is rarely used 
+# exercise: implement Elgamal point encryption scheme. this is rarely used 
 # because the points are rarely encrypted (if ever).
 # here's the scenario:
 #     Alice must send the point Y to Bob securely. Bob generates a random keypair (x, xG).
@@ -145,7 +145,7 @@ def pedersen(amount):
 #
 # then demonstrate the homomorphicity of Elgamal encryption scheme. using
 # two plaintexts 69000 * H and 420 * H, encrypt both separately, then pairwise add the two ciphers,
-# then decrypt the "sum" cipher. What is the decrypted plaintext? 
+# then decrypt the "sum" cipher. what is the decrypted plaintext? 
 
 bob_prvkey = dumb25519.random_scalar()
 bob_pubkey = bob_prvkey * dumb25519.G
