@@ -100,6 +100,6 @@ if __name__ == '__main__':
 
     # Proof2 = SchnorrProof(prvkey, pubkey)   # also try NISchnorrProof
     # if Proof2.verify():
-        # print("Prover you're desperate!")
-    # else:
         # print("Something's wrong :(")
+    # else:
+        # print("Prover you're desperate!")
